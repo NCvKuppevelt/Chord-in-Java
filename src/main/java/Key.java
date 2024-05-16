@@ -4,6 +4,6 @@ public class Key {
 
     public Key (String value) {
         this.value = value;
-        identifier = Sha1Hasher.encryptThisString(value);
+        identifier = Sha1Hasher.encrypt(value);
     }
 }
