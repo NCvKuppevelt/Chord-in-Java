@@ -1,9 +1,8 @@
-public class Node {
+public class Node extends Identifiable{
     private Key key;
-    private String identifier;
 
     public Node(String ipAddress){
         //"A node’s identifier is chosen by hashing the node’s IP address", p3
-        identifier = Sha1Hasher.hash(ipAddress);
+        super(ipAddress);
     }
 }
