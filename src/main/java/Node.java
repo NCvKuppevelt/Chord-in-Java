@@ -3,6 +3,7 @@ public class Node {
     private String identifier;
 
     public Node(String ipAddress){
-        identifier = Sha1Hasher.encrypt(ipAddress);
+        //"A node’s identifier is chosen by hashing the node’s IP address", p3
+        identifier = Sha1Hasher.hash(ipAddress);
     }
 }

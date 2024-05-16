@@ -1,2 +1,2 @@
 # Chord-in-Java
-An implementation of the P2P Chord protocol/algorithm in Java following https://pdos.csail.mit.edu/papers/ton:chord/paper-ton.pdf.
+This is an implementation of the P2P Chord protocol/algorithm in Java paper by Stoica et al. (n.d.): <i>Chord: A Scalable Peer-to-peer Lookup Protocol for Internet Applications</i>, found here: https://pdos.csail.mit.edu/papers/ton:chord/paper-ton.pdf. In this project I will refer to this paper many times for tracing my code back to it. The references will be in comments and take on the form of a quote followed by the page number(s), e.g.: `"A node’s identifier is chosen by hashing the node’s IP address", p3`.

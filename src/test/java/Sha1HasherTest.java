@@ -13,7 +13,7 @@ class Sha1HasherTest {
         var input = "test";
         var expected = "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3";
 
-        var actual = Sha1Hasher.encrypt(input);
+        var actual = Sha1Hasher.hash(input);
 
         Assertions.assertEquals(expected, actual);
     }
