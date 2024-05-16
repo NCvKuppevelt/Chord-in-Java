@@ -5,4 +5,12 @@ public class Node extends Identifiable{
         //"A node’s identifier is chosen by hashing the node’s IP address", p3
         super(ipAddress);
     }
+
+    public void setKey (Key key) {
+        this.key = key;
+    }
+
+    public Key getKey() {
+        return key;
+    }
 }

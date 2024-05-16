@@ -6,4 +6,8 @@ public class Key extends Identifiable {
         super(value);
         this.value = value;
     }
+
+    public String getValue() {
+        return value;
+    }
 }

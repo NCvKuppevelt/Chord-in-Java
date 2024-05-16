@@ -1,10 +1,17 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class IdentifierCircle {
-    private List<Node> circle;
+    private final List<Node> circle = new ArrayList<>();
 
     public void addNode(Node node) {
-
+        var index = 0;
+        for (int i = 0; i < circle.size(); i++) {
+            if (circle.get(i).compareTo(node) < 0) {
+                index = i;
+            }
+        }
+        circle.add(index, node);
     }
 
     /*
@@ -12,7 +19,16 @@ public class IdentifierCircle {
     space.
      */
     public void addKey(Key k) {
+        var node = getNodeForKey(k);
+        node.setKey(k);
+    }
+
+    private Node getNodeForKey(Key k) {
         for (Node node : circle) {
+            if (node.compareTo(k) >= 0) {
+                return node;
+            }
         }
+        return circle.getFirst();
     }
 }
