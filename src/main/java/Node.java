@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Node extends Identifiable{
-    private List<Key> keys = new ArrayList<>();
+    private final List<Key> KEYS = new ArrayList<>();
     private Node successor;
 
     public Node(String ipAddress){
@@ -11,11 +11,11 @@ public class Node extends Identifiable{
     }
 
     public void addKey(Key key) {
-        keys.add(key);
+        KEYS.add(key);
     }
 
     public List<Key> getKeys() {
-        return keys;
+        return KEYS;
     }
 
     public void setSuccessor(Node successor) {
