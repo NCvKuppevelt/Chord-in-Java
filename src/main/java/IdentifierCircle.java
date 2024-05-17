@@ -2,19 +2,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IdentifierCircle {
-    private final List<Node> circle = new ArrayList<>();
+    private final List<Node> CIRCLE = new ArrayList<>();
 
     public void addNode(Node node) {
         var index = 0;
-        Node successor = circle.getFirst();
-        for (int i = 0; i < circle.size(); i++) {
-            if (circle.get(i).compareTo(node) < 0) {
+        Node successor = !CIRCLE.isEmpty() ? CIRCLE.getFirst() : node;
+        for (int i = 0; i < CIRCLE.size(); i++) {
+            if (CIRCLE.get(i).compareTo(node) < 0) {
                 index = i;
-                successor = circle.get((i + 1) % circle.size());
+                successor = CIRCLE.get((i + 1) % CIRCLE.size());
                 break;
             }
         }
-        circle.add(index, node);
+        CIRCLE.add(index, node);
         node.setSuccessor(successor);
     }
 
@@ -35,9 +35,9 @@ public class IdentifierCircle {
      */
     private Node findSuccessor(String ident) {
         // Catches the edge case where ident is bigger than the last node in the circle, causing infinite recursion.
-        if (circle.getLast().compareTo(ident) < 0) {
-            return circle.getFirst();
+        if (CIRCLE.getLast().compareTo(ident) < 0) {
+            return CIRCLE.getFirst();
         }
-        return circle.getFirst().findSuccessor(ident);
+        return CIRCLE.getFirst().findSuccessor(ident);
     }
 }
