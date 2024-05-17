@@ -23,6 +23,11 @@ public class IdentifierCircle {
         successor.addKey(k);
     }
 
+    /**
+     * Finds which nodes a Key should be stored at by comparing its identifier to the nodes'.
+     * @param k The Key that a node should be found for.
+     * @return The node that the Key should be stored at.
+     */
     private Node getNodeForKey(Key k) {
         for (Node node : circle) {
             if (node.compareTo(k) >= 0) {
