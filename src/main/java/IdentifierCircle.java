@@ -10,7 +10,7 @@ public class IdentifierCircle {
         for (int i = 0; i < circle.size(); i++) {
             if (circle.get(i).compareTo(node) < 0) {
                 index = i;
-                successor = circle.get((i+1)% circle.size());
+                successor = circle.get((i + 1) % circle.size());
                 break;
             }
         }
@@ -34,6 +34,10 @@ public class IdentifierCircle {
      * @return The found successor.
      */
     private Node findSuccessor(String ident) {
+        // Catches the edge case where ident is bigger than the last node in the circle, causing infinite recursion.
+        if (circle.getLast().compareTo(ident) < 0) {
+            return circle.getFirst();
+        }
         return circle.getFirst().findSuccessor(ident);
     }
 }

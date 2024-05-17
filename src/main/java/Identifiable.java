@@ -10,6 +10,10 @@ public abstract class Identifiable implements Comparable<Identifiable> {
         return identifier.compareTo(identifiable.getIdentifier());
     }
 
+    public int compareTo(String ident) {
+        return identifier.compareTo(ident);
+    }
+
     public String getIdentifier() {
         return identifier.toString();
     }
