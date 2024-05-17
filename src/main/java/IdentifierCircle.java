@@ -12,6 +12,7 @@ public class IdentifierCircle {
             }
         }
         circle.add(index, node);
+        node.setSuccessor(findSuccessor(node));
     }
 
     /*
@@ -19,18 +20,20 @@ public class IdentifierCircle {
     space.
      */
     public void addKey(Key k) {
-        var successor = getNodeForKey(k);
+        var successor = findSuccessor(k);
         successor.addKey(k);
     }
 
     /**
-     * Finds which nodes a Key should be stored at by comparing its identifier to the nodes'.
-     * @param k The Key that a node should be found for.
-     * @return The node that the Key should be stored at.
+     * Finds the successor of an Identifiable. The successor is the first node whose identifier is equal to or follows
+     * the Identifiable.
+     *
+     * @param ident The Identifiable that a successor should be found for.
+     * @return The successor of the identifiable.
      */
-    private Node getNodeForKey(Key k) {
+    private Node findSuccessor(Identifiable ident) {
         for (Node node : circle) {
-            if (node.compareTo(k) >= 0) {
+            if (node.compareTo(ident) >= 0) {
                 return node;
             }
         }

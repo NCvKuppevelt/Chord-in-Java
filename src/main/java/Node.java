@@ -3,6 +3,7 @@ import java.util.List;
 
 public class Node extends Identifiable{
     private List<Key> keys = new ArrayList<>();
+    private Node successor;
 
     public Node(String ipAddress){
         //"A node’s identifier is chosen by hashing the node’s IP address", p3
@@ -15,5 +16,9 @@ public class Node extends Identifiable{
 
     public List<Key> getKeys() {
         return keys;
+    }
+
+    public void setSuccessor(Node successor) {
+        this.successor = successor;
     }
 }
