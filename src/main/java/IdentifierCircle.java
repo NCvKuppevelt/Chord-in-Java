@@ -19,8 +19,8 @@ public class IdentifierCircle {
     space.
      */
     public void addKey(Key k) {
-        var node = getNodeForKey(k);
-        node.setKey(k);
+        var successor = getNodeForKey(k);
+        successor.addKey(k);
     }
 
     private Node getNodeForKey(Key k) {

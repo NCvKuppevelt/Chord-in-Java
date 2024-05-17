@@ -1,16 +1,19 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Node extends Identifiable{
-    private Key key;
+    private List<Key> keys = new ArrayList<>();
 
     public Node(String ipAddress){
         //"A node’s identifier is chosen by hashing the node’s IP address", p3
         super(ipAddress);
     }
 
-    public void setKey (Key key) {
-        this.key = key;
+    public void addKey(Key key) {
+        keys.add(key);
     }
 
-    public Key getKey() {
-        return key;
+    public List<Key> getKeys() {
+        return keys;
     }
 }
