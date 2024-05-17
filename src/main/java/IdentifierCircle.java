@@ -6,13 +6,16 @@ public class IdentifierCircle {
 
     public void addNode(Node node) {
         var index = 0;
+        Node successor = circle.getFirst();
         for (int i = 0; i < circle.size(); i++) {
             if (circle.get(i).compareTo(node) < 0) {
                 index = i;
+                successor = circle.get((i+1)% circle.size());
+                break;
             }
         }
         circle.add(index, node);
-        node.setSuccessor(findSuccessor(node));
+        node.setSuccessor(successor);
     }
 
     /*
@@ -20,23 +23,17 @@ public class IdentifierCircle {
     space.
      */
     public void addKey(Key k) {
-        var successor = findSuccessor(k);
+        Node successor = findSuccessor(k.getIdentifier());
         successor.addKey(k);
     }
 
     /**
-     * Finds the successor of an Identifiable. The successor is the first node whose identifier is equal to or follows
-     * the Identifiable.
+     * Finds the successor of an identifier bij recursively hopping over the nodes in the circle.
      *
-     * @param ident The Identifiable that a successor should be found for.
-     * @return The successor of the identifiable.
+     * @param ident the identifier to find the successor of.
+     * @return The found successor.
      */
-    private Node findSuccessor(Identifiable ident) {
-        for (Node node : circle) {
-            if (node.compareTo(ident) >= 0) {
-                return node;
-            }
-        }
-        return circle.getFirst();
+    private Node findSuccessor(String ident) {
+        return circle.getFirst().findSuccessor(ident);
     }
 }

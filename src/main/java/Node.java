@@ -21,4 +21,17 @@ public class Node extends Identifiable{
     public void setSuccessor(Node successor) {
         this.successor = successor;
     }
+
+    /**
+     * Finds the successor if the given identifier by recursively hopping through nodes' successors.
+     * @param identifier The identifier to find the successor of.
+     * @return The node found as successor of the identifier.
+     */
+    public Node findSuccessor(String identifier) {
+        if (this.identifier.compareTo(identifier) >= 0) {
+            return successor;
+        } else {
+            return successor.findSuccessor(identifier);
+        }
+    }
 }
