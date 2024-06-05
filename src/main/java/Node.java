@@ -4,10 +4,14 @@ import java.util.List;
 public class Node extends Identifiable{
     private final List<Key> KEYS = new ArrayList<>();
     private Node successor;
+    private String ipAddress;
+    // "Each node n maintains a routing table, called the finger table.", p4
+    private ArrayList<Node> fingerTable = new ArrayList<>();
 
     public Node(String ipAddress){
         //"A node’s identifier is chosen by hashing the node’s IP address", p3
         super(ipAddress);
+        this.ipAddress = ipAddress;
     }
 
     public void addKey(Key key) {
@@ -33,5 +37,22 @@ public class Node extends Identifiable{
         } else {
             return successor.findSuccessor(identifier);
         }
+    }
+
+    /**
+     * Finds the successor if the given identifier by recursively hopping through nodes' successors.
+     * @param identifier The identifier to find the successor of.
+     * @return The node found as successor of the identifier.
+     */
+    public Node findSuccessor2(String identifier) {
+        if (this.identifier.compareTo(identifier) >= 0) {
+            return successor;
+        } else {
+            return successor.findSuccessor(identifier);
+        }
+    }
+
+    private void fillFingerTable() {
+
     }
 }
