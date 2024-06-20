@@ -12,7 +12,7 @@ public class Sha1Hasher {
     // identifier negligible.", p3
     private static final int BITS = 32;
 
-    public static String hash(String input) {
+    public static int hash(String input) {
         // handling exceptions
         try {
             // getInstance() method is called with algorithm SHA-1
@@ -33,7 +33,8 @@ public class Sha1Hasher {
                 hashtext = STR."0\{hashtext}";
             }
             // return the HashText created
-            return hashtext;
+//            return hashtext;
+            return no.intValue();
         }
         // For specifying wrong message digest algorithms
         catch (NoSuchAlgorithmException e) {

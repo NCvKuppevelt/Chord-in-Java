@@ -11,7 +11,7 @@ class Sha1HasherTest {
     @Test
     void stringIsEncryptedWithSha1() {
         var input = "test";
-        var expected = "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3";
+        var expected = -1741702189;
 
         var actual = Sha1Hasher.hash(input);
 

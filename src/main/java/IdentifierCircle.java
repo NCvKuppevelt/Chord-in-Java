@@ -23,7 +23,7 @@ public class IdentifierCircle {
     space.
      */
     public void addKey(Key k) {
-        Node successor = findSuccessor(k.getIdentifier());
+        Node successor = findSuccessor((Integer) k.getIdentifier());
         successor.addKey(k);
     }
 
@@ -33,7 +33,7 @@ public class IdentifierCircle {
      * @param ident the identifier to find the successor of.
      * @return The found successor.
      */
-    private Node findSuccessor(String ident) {
+    private Node findSuccessor(Integer ident) {
         // Catches the edge case where ident is bigger than the last node in the circle, causing infinite recursion.
         if (CIRCLE.getLast().compareTo(ident) < 0) {
             return CIRCLE.getFirst();

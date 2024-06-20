@@ -29,7 +29,7 @@ class IdentifiableTest {
             "4, 1, 1, true ",
             "5, 1, 1, false",
     })
-    void betweenTestSuite(String sutIdent, int lowerInclIndex, int upperInclIndex, boolean expected) {
+    void betweenTestSuite(Integer sutIdent, int lowerInclIndex, int upperInclIndex, boolean expected) {
         sut.setUnhashedIdentifier(sutIdent);
         var lower = new Identifiable("") {
         };
@@ -37,17 +37,17 @@ class IdentifiableTest {
         };
         var lowerIncl = BoundIncl.values()[lowerInclIndex];
         var upperIncl = BoundIncl.values()[upperInclIndex];
-        lower.setUnhashedIdentifier("2");
-        upper.setUnhashedIdentifier("4");
+        lower.setUnhashedIdentifier(2);
+        upper.setUnhashedIdentifier(4);
 
-        var actual = sut.between(lowerIncl, "2", "4", upperIncl);
+        var actual = sut.between(lowerIncl, 2, 4, upperIncl);
 
         assertEquals(expected, actual);
     }
 
     @Test
     void test() {
-        Comparable<String> test = "987654321";
-        System.out.println(test.compareTo("7"));
+        Comparable<Integer> test = 987654321;
+        System.out.println(test.compareTo(7));
     }
 }

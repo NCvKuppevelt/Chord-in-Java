@@ -31,7 +31,7 @@ public class Node extends Identifiable{
      * @param identifier The identifier to find the successor of.
      * @return The node found as successor of the identifier.
      */
-    public Node findSuccessorSimple(String identifier) {
+    public Node findSuccessorSimple(Integer identifier) {
         if (this.identifier.compareTo(identifier) >= 0) {
             return successor;
         } else {
@@ -44,7 +44,7 @@ public class Node extends Identifiable{
      * @param identifier The identifier to find the successor of.
      * @return The node found as successor of the identifier.
      */
-    public Node findSuccessorWithFingerTable(String identifier) {
+    public Node findSuccessorWithFingerTable(Integer identifier) {
         if (this.identifier.compareTo(identifier) >= 0) {
             return successor;
         } else {

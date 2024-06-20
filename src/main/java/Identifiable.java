@@ -1,11 +1,11 @@
 public abstract class Identifiable implements Comparable<Identifiable> {
-    protected Comparable<String> identifier;
+    protected Integer identifier;
 
     protected Identifiable(String preHashIdentifier) {
         identifier = Sha1Hasher.hash(preHashIdentifier);
     }
 
-    public void setUnhashedIdentifier(String unhashedIdentifier) {
+    public void setUnhashedIdentifier(Integer unhashedIdentifier) {
         identifier = unhashedIdentifier;
     }
 
@@ -14,12 +14,12 @@ public abstract class Identifiable implements Comparable<Identifiable> {
         return identifier.compareTo(identifiable.getIdentifier());
     }
 
-    public int compareTo(String ident) {
+    public int compareTo(Integer ident) {
         return identifier.compareTo(ident);
     }
 
-    public String getIdentifier() {
-        return identifier.toString();
+    public Integer getIdentifier() {
+        return identifier;
     }
 
     /**
@@ -31,7 +31,7 @@ public abstract class Identifiable implements Comparable<Identifiable> {
      * @param upperIncl Whether the upper bound is inclusive or exclusive.
      * @return Whether this Identifiable lays between upper and lower bounds.
      */
-    public boolean between(BoundIncl lowerIncl, String lower, String upper, BoundIncl upperIncl) {
+    public boolean between(BoundIncl lowerIncl, Integer lower, Integer upper, BoundIncl upperIncl) {
         boolean leftBool;
         switch (lowerIncl) {
             case BoundIncl.INCLUSIVE -> leftBool = compareTo(lower) >= 0;
