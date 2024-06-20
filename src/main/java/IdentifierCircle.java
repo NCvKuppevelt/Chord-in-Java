@@ -38,6 +38,6 @@ public class IdentifierCircle {
         if (CIRCLE.getLast().compareTo(ident) < 0) {
             return CIRCLE.getFirst();
         }
-        return CIRCLE.getFirst().findSuccessor(ident);
+        return CIRCLE.getFirst().findSuccessorSimple(ident);
     }
 }

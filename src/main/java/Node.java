@@ -31,11 +31,11 @@ public class Node extends Identifiable{
      * @param identifier The identifier to find the successor of.
      * @return The node found as successor of the identifier.
      */
-    public Node findSuccessor(String identifier) {
+    public Node findSuccessorSimple(String identifier) {
         if (this.identifier.compareTo(identifier) >= 0) {
             return successor;
         } else {
-            return successor.findSuccessor(identifier);
+            return successor.findSuccessorSimple(identifier);
         }
     }
 
@@ -44,11 +44,11 @@ public class Node extends Identifiable{
      * @param identifier The identifier to find the successor of.
      * @return The node found as successor of the identifier.
      */
-    public Node findSuccessor2(String identifier) {
+    public Node findSuccessorWithFingerTable(String identifier) {
         if (this.identifier.compareTo(identifier) >= 0) {
             return successor;
         } else {
-            return successor.findSuccessor(identifier);
+            return successor.findSuccessorWithFingerTable(identifier);
         }
     }
 

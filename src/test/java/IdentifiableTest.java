@@ -40,8 +40,14 @@ class IdentifiableTest {
         lower.setUnhashedIdentifier("2");
         upper.setUnhashedIdentifier("4");
 
-        var actual = sut.between(lowerIncl, lower, upper, upperIncl);
+        var actual = sut.between(lowerIncl, "2", "4", upperIncl);
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void test() {
+        Comparable<String> test = "987654321";
+        System.out.println(test.compareTo("7"));
     }
 }

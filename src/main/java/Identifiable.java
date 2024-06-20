@@ -23,7 +23,7 @@ public abstract class Identifiable implements Comparable<Identifiable> {
     }
 
     /**
-     * Check if this Identifiable lays between the range specified by lower and upper
+     * Check if this Identifiable lays between the range specified by lower and upper.
      *
      * @param lowerIncl Whether the lower bound is inclusive or exclusive.
      * @param lower     The lower bound of the range.
@@ -31,7 +31,7 @@ public abstract class Identifiable implements Comparable<Identifiable> {
      * @param upperIncl Whether the upper bound is inclusive or exclusive.
      * @return Whether this Identifiable lays between upper and lower bounds.
      */
-    public boolean between(BoundIncl lowerIncl, Identifiable lower, Identifiable upper, BoundIncl upperIncl) {
+    public boolean between(BoundIncl lowerIncl, String lower, String upper, BoundIncl upperIncl) {
         boolean leftBool;
         switch (lowerIncl) {
             case BoundIncl.INCLUSIVE -> leftBool = compareTo(lower) >= 0;
@@ -53,5 +53,18 @@ public abstract class Identifiable implements Comparable<Identifiable> {
             return rightBool;
         }
         return false;
+    }
+
+    /**
+     * Check if this Identifiable lays between the range specified by lower and upper.
+     *
+     * @param lowerIncl Whether the lower bound is inclusive or exclusive.
+     * @param lower     The lower bound of the range.
+     * @param upper     The upper bound of the range.
+     * @param upperIncl Whether the upper bound is inclusive or exclusive.
+     * @return Whether this Identifiable lays between upper and lower bounds.
+     */
+    public boolean between(BoundIncl lowerIncl, Identifiable lower, Identifiable upper, BoundIncl upperIncl) {
+        return between(lowerIncl, lower.getIdentifier(), upper.getIdentifier(), upperIncl);
     }
 }
